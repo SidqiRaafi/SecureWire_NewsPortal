@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.SecureWire" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/navy_blue</item>
+        <item name="colorPrimaryDark">@color/navy_blue</item>
+        <item name="colorAccent">@color/yellow</item>
+    </style>
+    <style name="Theme.SecureWire.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navy_blue">#0A2342</color>
+    <color name="dark_navy_blue">#091938</color>
+    <color name="yellow">#FFD700</color>
+    <color name="light_gray">#ADB5BD</color>
+    <color name="red">#E63946</color>
+    <color name="teal">#2A9D8F</color>
+    <color name="white">#F8F9FA</color>
+    <color name="black">#061A30</color>
+</resources>
