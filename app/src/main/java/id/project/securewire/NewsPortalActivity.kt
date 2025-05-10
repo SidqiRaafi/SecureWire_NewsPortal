@@ -15,7 +15,6 @@ class NewsPortalActivity : AppCompatActivity() {
         "Fusce pellentesque suscipit nibh vel molestie",
         "Nullam posuere lacus vel accumsan dignissim"
     )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_portal)
@@ -25,8 +24,7 @@ class NewsPortalActivity : AppCompatActivity() {
             this,
             R.layout.recommendation_item,
             R.id.recommendationText,
-            recommendationItems
-        ) {
+            recommendationItems) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getView(position, convertView, parent)
                 val textView = view.findViewById<TextView>(R.id.recommendationText)
@@ -34,7 +32,6 @@ class NewsPortalActivity : AppCompatActivity() {
                 return view
             }
         }
-
         recommendationsList.adapter = adapter
     }
 }

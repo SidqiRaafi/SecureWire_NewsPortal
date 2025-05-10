@@ -28,11 +28,9 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, NewsPortalActivity::class.java))
             finish()
         }
-
         backTextView.setOnClickListener {
             finish()
         }
-
         forgotPasswordTextView.setOnClickListener {
             Toast.makeText(this, "Forgot Password feature not implemented", Toast.LENGTH_SHORT).show()
         }
