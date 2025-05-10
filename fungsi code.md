@@ -1,5 +1,5 @@
 SplashActivity.kt
-```
+```kotlin
 package id.project.securewire
 
 import android.animation.ValueAnimator
