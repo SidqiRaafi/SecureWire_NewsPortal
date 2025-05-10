@@ -1,4 +1,5 @@
 SplashActivity.kt
+
 ```kotlin
 package id.project.securewire
 
@@ -106,6 +107,7 @@ pendefinisian loading stage sebagai data class
 --------------------------------------------------------------------------------
 
 MenuActivity.kt
+
 ```kotlin
 package id.project.securewire
 
@@ -142,6 +144,7 @@ sama dengan fungsi tombol login, hanya saja digunakan untuk memindahakan user ke
 --------------------------------------------------------------------------------
 
 LoginActivity.kt
+
 ```kotlin
 package id.project.securewire
 
@@ -185,14 +188,14 @@ inisialisasi komponen UI dalam activity
             finish()
         }
 ```
-logika untuk tombol login, memvalidasi bila semua field sudah diisi, menampilkan toast bila validasi gagal
+logika untuk tombol login, memvalidasi bila semua field sudah diisi, menampilkan toast bila validasi gagal, jika berhasil ke NewsPortalActivity
 
 ```kotlin
         backTextView.setOnClickListener {
             finish()
         }
 ```
-fungsi tombol back dengan menutup activity ini dan kembali ke MenuActivity.kt
+fungsi tombol back dengan menutup activity ini dan kembali ke MenuActivity
 
 ```kotlin
         forgotPasswordTextView.setOnClickListener {
@@ -203,6 +206,130 @@ fungsi tombol back dengan menutup activity ini dan kembali ke MenuActivity.kt
 ```
 menampilkan toast bahwa fitur forgot password belum di implementasikan
 
+--------------------------------------------------------------------------------
+
+RegisterActivity.kt
+
+```kotlin
+package id.project.securewire
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+```
+definisi package dan import
+
+```kotlin
+class RegisterActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_register)
+        supportActionBar?.hide()
+```
+awalan RegisterActivity, menyembunyikan action bar dan layout dari activity_register.xml
+
+```kotlin
+        val emailEditText = findViewById<EditText>(R.id.emailEditText)
+        val usernameEditText = findViewById<EditText>(R.id.usernameEditText)
+        val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
+        val registerButton = findViewById<Button>(R.id.registerButton)
+        val backTextView = findViewById<TextView>(R.id.backTextView)
+        val loginTextView = findViewById<TextView>(R.id.loginTextView)
+```
+inisialisasi komponen UI dalam activity
+
+```kotlin
+        registerButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val username = usernameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+            if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, NewsPortalActivity::class.java))
+            finish()
+        }
+```
+logika button registasi, untuk memvalidasi bila semua field diisi, menampilkan toast jika ada field kosong, ke NewsPortalActivity bila berhasil
+
+```kotlin
+        backTextView.setOnClickListener {
+            finish()
+        }
+        loginTextView.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+}
+```
+tombol back untuk kembali ke MenuActivity, dan login untuk ke LoginActivity
+
+--------------------------------------------------------------------------------
+
+NewsPortalActivity.kt
+
+```kotlin
+package id.project.securewire
+
+import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+```
+definisi package dan import
+
+```kotlin
+class NewsPortalActivity : AppCompatActivity() {
+    private val recommendationItems = listOf(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Praesent eget risus vitae massa semper aliquam",
+        "Fusce pellentesque suscipit nibh vel molestie",
+        "Nullam posuere lacus vel accumsan dignissim"
+    )
+```
+deklarasi berita yang akan ditampilkan menggunakan dummy text
+
+```kotlin
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_news_portal)
+        supportActionBar?.hide()
+```
+awalan dari NewsPortalActivity, menyembunyikan action bar, dan layout dari activity_news_portal.xml
+
+```kotlin
+        val recommendationsList = findViewById<ListView>(R.id.recommendationsList)
+        val adapter = object : ArrayAdapter<String>(
+            this,
+            R.layout.recommendation_item,
+            R.id.recommendationText,
+            recommendationItems) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                val textView = view.findViewById<TextView>(R.id.recommendationText)
+                textView.text = recommendationItems[position]
+                return view
+            }
+        }
+```
+pembuatan adapter untuk listview di news portal, menggunakan layout custom dari recommendation_item.xml mengatur text dari data di recomendationItems
+
+```kotlin
+        recommendationsList.adapter = adapter
+    }
+}
+```
+mengatur adapter ke listview untuk menampilkan daftar berita ke user
 
 
 
