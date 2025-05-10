@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 class SplashActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var statusTextView: TextView
-    private val totalDuration = 5500L
     private val loadingStages = listOf(
         LoadingStage(0, 10, "Loading information...", 1000L),
         LoadingStage(10, 35, "Verifying information..", 1500L),
