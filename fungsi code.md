@@ -103,6 +103,8 @@ data class LoadingStage(
 ```
 pendefinisian loading stage sebagai data class
 
+--------------------------------------------------------------------------------
+
 MenuActivity.kt
 ```kotlin
 package id.project.securewire
@@ -137,6 +139,69 @@ findViewById<AppCompatButton>(R.id.loginButton).setOnClickListener {
 ```
 sama dengan fungsi tombol login, hanya saja digunakan untuk memindahakan user ke RegisterActivity saat di klik
 
+--------------------------------------------------------------------------------
+
+LoginActivity.kt
+```kotlin
+package id.project.securewire
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Button
+import android.widget.EditText
+```
+definisi package dan import
+
+```kotlin
+class LoginActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+        supportActionBar?.hide()
+```
+awalan kelas LoginActivity dan mengatur layout dari activity_login.xml
+
+```kotlin
+        val usernameEditText = findViewById<EditText>(R.id.usernameEditText)
+        val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val backTextView = findViewById<TextView>(R.id.backTextView)
+        val forgotPasswordTextView = findViewById<TextView>(R.id.forgotPasswordTextView)
+```
+inisialisasi komponen UI dalam activity
+
+```kotlin
+        loginButton.setOnClickListener {
+            val username = usernameEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please enter both username and password", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            startActivity(Intent(this, NewsPortalActivity::class.java))
+            finish()
+        }
+```
+logika untuk tombol login, memvalidasi bila semua field sudah diisi, menampilkan toast bila validasi gagal
+
+```kotlin
+        backTextView.setOnClickListener {
+            finish()
+        }
+```
+fungsi tombol back dengan menutup activity ini dan kembali ke MenuActivity.kt
+
+```kotlin
+        forgotPasswordTextView.setOnClickListener {
+            Toast.makeText(this, "Forgot Password feature not implemented", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+```
+menampilkan toast bahwa fitur forgot password belum di implementasikan
 
 
 
