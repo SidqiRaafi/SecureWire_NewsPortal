@@ -1,4 +1,4 @@
-...
+```
 2025-05-10 21:55:20.613 17196-17196 VRI[MenuActivity]       id.project.securewire                D  visibilityChanged oldVisibility=true newVisibility=false
 2025-05-10 21:55:42.368 17196-17196 ImeTracker              id.project.securewire                I  id.project.securewire:bb2f57a6: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser true
 2025-05-10 21:55:42.370 17196-17196 InputMethodManager      id.project.securewire                D  showSoftInput() view=androidx.appcompat.widget.AppCompatEditText{939a643 VFED..CL. .F.P..ID 84,802-996,944 #7f0900b3 app:id/emailEditText aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
@@ -42,4 +42,4 @@
 2025-05-10 21:55:59.306 17196-17196 WindowOnBackDispatcher  id.project.securewire                W  sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@4d58718
 2025-05-10 21:56:00.129 17196-17211 EGL_emulation           id.project.securewire                D  app_time_stats: avg=372.75ms min=22.27ms max=1209.59ms count=4
 
-...
+```
