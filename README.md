@@ -137,7 +137,6 @@ Before running this project, ensure you have:
 - **Android Studio**: Arctic Fox (2020.3.1) or newer
 - **JDK**: Java Development Kit 11 or higher
 - **Android SDK**: API Level 24 or higher
-- **News API Key**: Register at [NewsAPI.org](https://newsapi.org/) for free API access
 
 ---
 
