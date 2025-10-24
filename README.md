@@ -150,58 +150,14 @@ git clone https://github.com/SidqiRaafi/SecureWire_NewsPortal.git
 cd SecureWire_NewsPortal
 ```
 
-### 2. Get Your News API Key
-
-1. Visit [NewsAPI.org](https://newsapi.org/)
-2. Sign up for a free account
-3. Generate your API key from the dashboard
-
-### 3. Configure API Key
-
-Create a `local.properties` file in the root directory (if it doesn't exist) and add your API key:
-
-```properties
-NEWS_API_KEY="your_api_key_here"
-```
-
-Or add it to `gradle.properties`:
-
-```properties
-NEWS_API_KEY=your_api_key_here
-```
-
-### 4. Sync Project with Gradle Files
+### 2. Sync Project with Gradle Files
 
 Open the project in Android Studio and let Gradle sync all dependencies.
 
-### 5. Build and Run
+### 3. Build and Run
 
 - Connect an Android device or start an emulator
 - Click **Run** (Shift + F10) or use the play button in Android Studio
-
----
-
-## 🔑 API Configuration
-
-The application uses **News API** to fetch news articles. Configure the API endpoints in `ApiService.kt`:
-
-```kotlin
-interface NewsApiService {
-    @GET("v2/top-headlines")
-    suspend fun getTopHeadlines(
-        @Query("country") country: String = "us",
-        @Query("category") category: String? = null,
-        @Query("apiKey") apiKey: String
-    ): Response<NewsResponse>
-
-    @GET("v2/everything")
-    suspend fun searchNews(
-        @Query("q") query: String,
-        @Query("apiKey") apiKey: String,
-        @Query("page") page: Int = 1
-    ): Response<NewsResponse>
-}
-```
 
 ---
 
